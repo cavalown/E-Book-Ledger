@@ -1,31 +1,18 @@
 import "./App.scss";
-import { Link, Routes, Route } from "react-router-dom";
-import { Button } from "@mui/material";
-import HomeIcon from "@mui/icons-material/Home";
-
-const Home = () => (
-  <div>
-    <h2>Home Page</h2>
-    <Button variant="contained" color="primary">
-      <HomeIcon />
-      Home
-    </Button>
-  </div>
-);
-
-const About = () => <h2>About Page</h2>;
+import { Link, Outlet } from "react-router-dom";
+import AppRoutes from "./router";
 
 function App() {
   return (
     <div>
       <nav>
         <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
+        <Link to="/category">Category</Link>
+        <Link to="/platform">Platform</Link>
+        <Link to="/enter">Login</Link>
       </nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
+      <AppRoutes></AppRoutes>
+      <Outlet></Outlet>
     </div>
   );
 }
